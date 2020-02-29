@@ -19,8 +19,8 @@ class Server {
 			Scanner sc = new Scanner(System.in);
 			System.out.println(" Enter a message : ");
 			serverMsg = sc.nextLine();
-			DataOutputStream dos = new DataOutputStream(s.getOutputStream());
-			dos.writeBytes(serverMsg + '\n');
+			DataOutputStream dout = new DataOutputStream(s.getOutputStream());
+			dout.writeBytes(serverMsg + '\n');
 		}
 	}
 }

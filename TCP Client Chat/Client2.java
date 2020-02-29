@@ -8,5 +8,11 @@ class Client2
 	{
 		System.out.println(" Client-2 Side");
 		Socket s = new Socket("localhost", 8000);
+				
+		Scanner sc = new Scanner(System.in);
+		String msg = sc.nextLine();
+		DataOutputStream dout = new DataOutputStream(s.getOutputStream());
+		dout.writeBytes(msg + '\n');
+		
 	}
 }
