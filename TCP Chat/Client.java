@@ -8,20 +8,18 @@ class Client
 	{
 		String clientMsg, replyMsg;
 		System.out.println(" Client Side");
-		Socket clientsocket=new Socket("localhost",8800);
-		DataOutputStream outtoserver;
-		BufferedReader br;
-		Scanner s;
+		Socket s = new Socket("localhost", 8800);
+		DataOutputStream dos;
+		BufferedReader br = new BufferedReader(new InputStreamReader(s.getInputStream()));;
+		Scanner sc = new Scanner(System.in);
 		while(true)
 		{
-			s = new Scanner(System.in);
-			System.out.println("Enter a message: ");
-			clientMsg=s.nextLine();
-			outtoserver=new DataOutputStream(clientsocket.getOutputStream());
-			outtoserver.writeBytes(clientMsg + '\n');
-			br= new BufferedReader(new InputStreamReader(clientsocket.getInputStream()));
+			System.out.println(" Enter a message: ");
+			clientMsg = sc.nextLine();
+			dos = new DataOutputStream(s.getOutputStream());
+			dos.writeBytes(clientMsg + '\n');
 			replyMsg = br.readLine();
-			System.out.println("from server: " + replyMsg);
+			System.out.println(" From Server: " + replyMsg);
 		}	
 	}
 }
